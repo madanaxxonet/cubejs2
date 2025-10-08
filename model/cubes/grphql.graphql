@@ -1,8 +1,9 @@
-query CubeQuery {
-  cube {
-    truckmodel_totalamount {
-      countFines
-      typeOfFine
-    }
+
+
+
+query PenaltyByTruck {
+  PenaltyData {
+    truckModel
+    totalAmount
   }
 }
