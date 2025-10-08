@@ -20,53 +20,53 @@ cubes:
         ON p.driver_uuid = d.uuid
 
     measures:
-      totalAmount:
+      - name: totalAmount
         type: sum
         sql: amount_in_euro
         title: "Total Amount in Euro"
 
-      countFines:
+      - name: countFines
         type: count
         sql: fine_id
         title: "Number of Fines"
 
     dimensions:
-      fineId:
+      - name: fineId
         sql: fine_id
         type: string
 
-      country:
+      - name: country
         sql: country
         type: string
 
-      fineDate:
+      - name: fineDate
         sql: fine_date
         type: time
 
-      receiptFineDate:
+      - name: receiptFineDate
         sql: receipt_fine_date
         type: time
 
-      typeOfFine:
+      - name: typeOfFine
         sql: type_of_fine
         type: string
 
-      truckNumber:
+      - name: truckNumber
         sql: truck_number
         type: string
 
-      licensePlate:
+      - name: licensePlate
         sql: license_plate
         type: string
 
-      truckModel:
+      - name: truckModel
         sql: truck_model
         type: string
 
-      driverFirstname:
+      - name: driverFirstname
         sql: driver_firstname
         type: string
 
-      driverLastname:
+      - name: driverLastname
         sql: driver_lastname
         type: string
