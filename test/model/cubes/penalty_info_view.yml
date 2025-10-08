@@ -1,0 +1,72 @@
+cubes:
+  - name: PenaltyData
+    sql: |
+      SELECT
+        p.fine_id,
+        p.country,
+        p.fine_date,
+        p.receipt_fine_date,
+        p.amount_in_euro,
+        p.type_of_fine,
+        t.truck_number,
+        t.license_plate,
+        t.model AS truck_model,
+        d.firstname AS driver_firstname,
+        d.lastname AS driver_lastname
+      FROM avia_logistics.penalty_data AS p
+      LEFT JOIN avia_logistics.truck_info AS t
+        ON p.truck_uuid = t.uuid
+      LEFT JOIN avia_logistics.driver_info AS d
+        ON p.driver_uuid = d.uuid
+
+    measures:
+      totalAmount:
+        type: sum
+        sql: amount_in_euro
+        title: "Total Amount in Euro"
+
+      countFines:
+        type: count
+        sql: fine_id
+        title: "Number of Fines"
+
+    dimensions:
+      fineId:
+        sql: fine_id
+        type: string
+
+      country:
+        sql: country
+        type: string
+
+      fineDate:
+        sql: fine_date
+        type: time
+
+      receiptFineDate:
+        sql: receipt_fine_date
+        type: time
+
+      typeOfFine:
+        sql: type_of_fine
+        type: string
+
+      truckNumber:
+        sql: truck_number
+        type: string
+
+      licensePlate:
+        sql: license_plate
+        type: string
+
+      truckModel:
+        sql: truck_model
+        type: string
+
+      driverFirstname:
+        sql: driver_firstname
+        type: string
+
+      driverLastname:
+        sql: driver_lastname
+        type: string
