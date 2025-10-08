@@ -1,0 +1,8 @@
+query CubeQuery {
+  cube {
+    truckmodel_totalamount {
+      countFines
+      typeOfFine
+    }
+  }
+}
