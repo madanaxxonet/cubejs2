@@ -1,0 +1,9 @@
+cubes:
+  - name: truckmodel_totalamount
+    extends: PenaltyData   # <-- reference the existing cube
+
+    measures:
+      - totalAmount        # only expose this measure
+
+    dimensions:
+      - truckModel         # only expose this dimension
